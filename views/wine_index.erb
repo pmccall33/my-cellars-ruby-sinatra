@@ -1,0 +1,21 @@
+<h2>Wines in the Cellar</h2>
+
+<ul>
+	
+	<li>
+		<% @wines.each do |wine| %>
+			<% if wine.wine_image_url %>
+				<img src="<%= wine.wine_image_url %>" alt="Image of <%= wine.wine_name%> wine">
+			<% end %>
+			<h3><%= wine.wine_name %></h3>
+			<p>Produced by <%= wine.winemaker %> from <%= wine.wine_region %>. A <%= wine.wine_vintage %> vintage. Varietals include <%= wine.wine_varietals%>. </p>
+			<form action="/wines/<%= wine.id %>" method="POST">
+		        <input type="hidden" name="_method" value="DELETE">
+		        <button>Remove Wine from the Cellar</button>
+		    </form>
+			<a href="/wines/<%=wine.id%>/edit">Update Wine Information</a><br />
+			<hr>
+		<% end %>
+
+	</li>	
+</ul>

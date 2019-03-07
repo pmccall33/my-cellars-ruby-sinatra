@@ -91,6 +91,29 @@ class UserController < ApplicationController
 		}
 		redirect '/'
 	end
+
+	get '/cellars' do
+		puts "user/cellars GET show route working"
+		puts session[:id]
+
+		user = User.find_by username: session[:username]
+		puts user.id
+		# cellar = Cellar.find_by user_id: user.id
+		# puts cellar
+
+		cellars = Cellar.find_by(user_id: user.id)
+		puts "#{cellars} cellars find_by"
+
+		@user_cellars = []
+		@cellars = Cellar.where(user_id: user.id)
+		puts @cellars
+		puts @cellars.class
+		@user_cellars.push(@cellars)
+		puts @user_cellars
+		puts "#{@user_cellars[2]}  user_cellars[2] herere"
+
+		erb :home
+	end
 end
 
 

@@ -2,6 +2,10 @@ INSERT INTO users (username, is_admin) VALUES ('Pedro', 't');
 
 INSERT INTO cellars (cellar_name, user_id) VALUES ('Home Cellar', '1');
 INSERT INTO cellars (cellar_name, user_id) VALUES ('Wish List Cellar', '1');
+INSERT INTO cellars (cellar_name, user_id) VALUES ('Home Cellar', '2');
+INSERT INTO cellars (cellar_name, user_id) VALUES ('Wish List Cellar', '2');
+INSERT INTO cellars (cellar_name, user_id) VALUES ('Work Cellar', '2');
+INSERT INTO cellars (cellar_name, user_id) VALUES ('Hidden Cellar', '2');
 
 INSERT INTO wines (wine_name, winemaker, wine_region, wine_varietals, wine_vintage, wine_image_url, wine_link, wine_notes)
 VALUES ('Neck', 'Sylvain Bock', 'Vallee du Rhone', 'Grenache', '2017', '', '', 'Thumbs way UP for this excellenc Grenache!' );
