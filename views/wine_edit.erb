@@ -1,0 +1,28 @@
+<h2>Edit Wine Information</h2>
+ 
+<form action="/wines/<%= @wine.id %>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<input type="text" name="wine_name" value="<%= @wine.wine_name %>"><br />
+	<input type="text" name="winemaker" value="<%= @wine.winemaker %>"><br />
+	<input type="text" name="wine_region" value="<%= @wine.wine_region %>"><br />
+	<input type="text" name="wine_varietals" value="<%= @wine.wine_varietals %>"><br />
+	<input type="text" name="wine_vintage" value="<%= @wine.wine_vintage %>"><br />
+	<input type="text" name="wine_image_url" value="<%= @wine.wine_image_url %>"><br />
+	<input type="text" name="wine_link" value="<%= @wine.wine_link %>"><br />
+	<input type="text" name="wine_notes" value="<%= @wine.wine_notes %>"><br />
+
+	<button>Update Wine</button>
+</form>
+
+<!-- 
+CREATE TABLE wines(
+	id SERIAL PRIMARY KEY,
+	wine_name VARCHAR(63),
+	winemaker VARCHAR(63),
+	wine_region VARCHAR(63),
+	wine_varietals VARCHAR(127),
+	wine_vintage SMALLINT,
+	wine_image_url TEXT,
+	wine_link VARCHAR(255),
+	wine_notes TEXT
+); -->

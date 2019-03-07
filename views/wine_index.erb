@@ -8,7 +8,8 @@
 				<img src="<%= wine.wine_image_url %>" alt="Image of <%= wine.wine_name%> wine">
 			<% end %>
 			<h3><%= wine.wine_name %></h3>
-			<p>Produced by <%= wine.winemaker %> from <%= wine.wine_region %>. A <%= wine.wine_vintage %> vintage. Varietals include <%= wine.wine_varietals%>. </p>
+			<p>Produced by <%= wine.winemaker %> from <%= wine.wine_region %>. A <%= wine.wine_vintage %> vintage. Varietals include <%= wine.wine_varietals%> </p>
+			<a href="<%= wine.wine_link%>">Link to <%= wine.wine_name %> info</a>
 			<form action="/wines/<%= wine.id %>" method="POST">
 		        <input type="hidden" name="_method" value="DELETE">
 		        <button>Remove Wine from the Cellar</button>

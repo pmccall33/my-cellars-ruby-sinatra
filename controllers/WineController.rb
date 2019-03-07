@@ -61,27 +61,32 @@ class WineController < ApplicationController
 
 
 
-	# put '/:id' do
-	# 	@wine = Wine.find params[:id]
-	# 	@wine.wine_name = params[:wine_name]
-	# 	@wine.winemaker = params[:winemaker]
-	# 	@wine.wine_region = params[:wine_region]
-	# 	@wine.style  = params[:style]
-	# 	@wine.year = params[:year]
+	put '/:id' do
+		puts "put /:id route reached....."
+		wine = Wine.find params[:id]
+		puts wine
 
-	# 	@wine.save
+		wine.wine_name = params[:wine_name]
+		wine.winemaker = params[:winemaker]
+		wine.wine_region = params[:wine_region]
+		wine.wine_varietals  = params[:wine_varietals]
+		wine.wine_vintage = params[:wine_vintage]
+		wine.wine_image_url = params[:wine_image_url]
+		wine.wine_link = params[:wine_link]
+		wine.wine_notes = params[:wine_notes]
+		
+		wine.save
 
-	# 	redirect '/wines'
+		redirect '/wines'
+	end
 
-	# end
 
+	get '/:id/edit' do
+		@wine = Wine.find_by id: params[:id]
 
-	# get '/:id/edit' do
-	# 	@wine = Wine.find_by id: params[:id]
-
-	# 	# puts @wine
-	# 	erb :wine_edit
-	# end
+		# puts @wine
+		erb :wine_edit
+	end
 
 
 	# delete '/:id' do
