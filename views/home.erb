@@ -2,14 +2,20 @@
 
 <img src="http://www.agricolaocchipinti.it/en/img/vini-agricola-occhipinti.jpg" alt="wine bottle">
 
+
+	
+
 <% if @cellars and @cellars.length > 0 %>
-	<hr>
-	<p>cellar: <%=@cellars.ids%> </p>
-	<form action="/cellar/destroy/<%=@cellars_id%>" method="POST">
-		<button>Empty the Cellar</button>
-		<input hidden name="_method" value="DELETE">
-	</form>
-	<hr>
-	<br />
+	<% @cellars.each do |cellar| %>
+		<hr>
+		<p>cellar: <%= cellar.cellar_name %> </p>
+		<form action="/cellars/<%=cellar.id%>" method="POST">
+			<input hidden name="_method" value="DELETE">
+			<button>Empty the Cellar!</button>
+		</form>
+		<hr>
+		<br />
+	<% end %>
+
 <% end %>
 

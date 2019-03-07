@@ -22,7 +22,7 @@ map '/user' do
  	run UserController
 end
 
-map '/cellar' do
+map '/cellars' do
 	run CellarController
 end
 

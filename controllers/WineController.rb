@@ -19,13 +19,6 @@ class WineController < ApplicationController
 		erb :wine_new
 	end
 
-	# get wine by :id route
-	get '/:id' do
-		@wine = Wine.find_by id: params[:id]
-		puts @wine
-		puts @wine.winemaker
-	end
-
 	# create/ POST route
 	post '/' do
 		puts "You have hit the POST route, congrats"
@@ -47,6 +40,13 @@ class WineController < ApplicationController
 
 	end
 
+	# get wine by :id route
+	get '/:id' do
+		@wine = Wine.find_by id: params[:id]
+		puts @wine
+		puts @wine.winemaker
+	end
+	
 	# CREATE TABLE wines(
 	# id SERIAL PRIMARY KEY,
 	# wine_name VARCHAR(63),
@@ -89,15 +89,15 @@ class WineController < ApplicationController
 	end
 
 
-	# delete '/:id' do
-	# 	wine = Wine.find params[:id]
-	# 	pp wine
+	delete '/:id' do
+		wine = Wine.find params[:id]
+		pp wine
 
-	# 	# DESTROY IT!!!!!
-	# 	wine.destroy
+		# DESTROY IT!!!!!
+		wine.destroy
 
-	# 	redirect '/wines'
+		redirect '/wines'
 
-	# end
+	end
 
 end
