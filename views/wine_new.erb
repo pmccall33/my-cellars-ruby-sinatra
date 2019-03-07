@@ -1,0 +1,28 @@
+<h2>Add a wine to the Cellar</h2>
+
+<form action="/wines" method="POST">
+	<input type="text" name="wine_name" placeholder="Wine..."><br />
+	<input type="text" name="winemaker" placeholder="Winemaker..."><br />
+	<input type="text" name="wine_region" placeholder="Region..."><br />
+	<input type="text" name="wine_varietals" placeholder="Varietals..."><br />
+	<input type="text" name="wine_vintage" placeholder="Vintage..."><br />
+	<input type="text" name="wine_image_url" placeholder="Image URL..."><br />
+	<input type="text" name="wine_link" placeholder="Link to Wine Info..."><br />
+	<input type="text" name="wine_notes" placeholder="Notes on the wine..."><br />
+
+	<button>Add your Wine</button>
+</form>
+
+
+<!-- 
+CREATE TABLE wines(
+	id SERIAL PRIMARY KEY,
+	wine_name VARCHAR(63),
+	winemaker VARCHAR(63),
+	wine_region VARCHAR(63),
+	wine_varietals VARCHAR(127),
+	wine_vintage SMALLINT,
+	wine_image_url TEXT,
+	wine_link VARCHAR(255),
+	wine_notes TEXT
+); -->

@@ -26,6 +26,6 @@ map '/cellar' do
 	run CellarController
 end
 
-map '/wine' do
+map '/wines' do
 	run WineController
 end

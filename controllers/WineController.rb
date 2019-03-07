@@ -13,27 +13,53 @@ class WineController < ApplicationController
 		erb :wine_index
 	end
 
-	# # new route
-	# get '/new' do
-	# 	erb :wine_new
-	# end
 
-	# # create/ POST route
-	# post '/' do
-	# 	puts "You have hit the POST route, congrats"
-	# 	wine = Wine.new
+	# new route
+	get '/new' do
+		erb :wine_new
+	end
 
-	# 	wine.wine_name = params[:wine_name]
-	# 	wine.winemaker = params[:winemaker]
-	# 	wine.wine_region = params[:wine_region]
-	# 	wine.wine_style  = params[:wine_style]
-	# 	wine.wine_vintage = params[:wine_vintage]
+	# get wine by :id route
+	get '/:id' do
+		@wine = Wine.find_by id: params[:id]
+		puts @wine
+		puts @wine.winemaker
+	end
 
- #    	wine.save
+	# create/ POST route
+	post '/' do
+		puts "You have hit the POST route, congrats"
+		wine = Wine.new
 
- #    	redirect '/wines'
+		wine.wine_name = params[:wine_name]
+		wine.winemaker = params[:winemaker]
+		wine.wine_region = params[:wine_region]
+		wine.wine_varietals  = params[:wine_varietals]
+		wine.wine_vintage = params[:wine_vintage]
+		wine.wine_image_url = params[:wine_image_url]
+		wine.wine_link = params[:wine_link]
+		wine.wine_notes = params[:wine_notes]
 
-	# end
+    	wine.save
+
+    	puts "#{wine} created wine is here-----"
+    	redirect '/wines'
+
+	end
+
+	# CREATE TABLE wines(
+	# id SERIAL PRIMARY KEY,
+	# wine_name VARCHAR(63),
+	# winemaker VARCHAR(63),
+	# wine_region VARCHAR(63),
+	# wine_varietals VARCHAR(127),
+	# wine_vintage SMALLINT,
+	# wine_image_url TEXT,
+	# wine_link VARCHAR(255),
+	# wine_notes TEXT
+	# );
+
+
 
 	# put '/:id' do
 	# 	@wine = Wine.find params[:id]
