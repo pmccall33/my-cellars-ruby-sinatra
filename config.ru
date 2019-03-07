@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 # require controllers
 require './controllers/ApplicationController'
-# require './controllers/UserController'
+require './controllers/UserController'
 # require './controllers/UserAPIController'
 # require './controllers/CellarController'
 # require './controllers/WineController'
@@ -18,9 +18,9 @@ map '/' do
   run ApplicationController
 end
 
-# map '/user' do
-#  	run UserController
-# end
+map '/user' do
+ 	run UserController
+end
 
 # map '/cellar' do
 # 	run CellarController

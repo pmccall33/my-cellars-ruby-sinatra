@@ -7,7 +7,7 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(32),
   password_digest VARCHAR(60),
-  is_admin BOOLEAN NOT NULL DEFAULT FALSE 
+  is_admin BOOLEAN DEFAULT FALSE 
 );
 
 CREATE TABLE cellars(
