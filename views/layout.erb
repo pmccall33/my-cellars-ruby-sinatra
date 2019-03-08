@@ -14,10 +14,12 @@
 			<% if session[:logged_in] %>
 			Howdy, <%= session[:username] %>.
 			<a href="/user/logout">Log out</a>
+			<a href="/user/cellars">My cellars</a>
 			<% else %>
 			<a href="/user/login">Log in</a> | 
 			<a href="/user/register">Register</a>
 			<% end %>
+			<a href="/wines/new">Add a wine to the Master Cellar</a>
 	    </nav>
 	</header> 
 

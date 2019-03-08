@@ -3,7 +3,7 @@ require 'sinatra/base'
 # require controllers
 require './controllers/ApplicationController'
 require './controllers/UserController'
-# require './controllers/UserAPIController'
+require './controllers/UserAPIController'
 require './controllers/CellarController'
 require './controllers/WineController'
 
@@ -11,6 +11,7 @@ require './controllers/WineController'
 require './models/UserModel'
 require './models/CellarModel'
 require './models/WineModel'
+require './models/CellarWineModel'
 
 # routes
 
@@ -20,6 +21,10 @@ end
 
 map '/user' do
  	run UserController
+end
+
+map '/api/v1/user' do
+	run UserAPIController
 end
 
 map '/cellars' do

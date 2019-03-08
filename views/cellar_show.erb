@@ -1,0 +1,12 @@
+<h2>Show Cellar Wines Page</h2>
+<h2><%= @cellar.cellar_name %></h2>
+
+<p><%= @cellar.wines %></p>
+<% if @cellar.wines %>
+	<% @cellar.wines.each do |wine| %>
+		<hr>
+		<p>wine: <%= wine.wine_name %> </p>
+	<% end %>
+	<a href="/home">Add a Wine to Your Cellar</a>
+<% end %>
+

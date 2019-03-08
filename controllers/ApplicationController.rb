@@ -43,7 +43,7 @@ class ApplicationController < Sinatra::Base
 	end
 
 	get '/' do 
-		erb :home
+		erb :index
 	end
 
 	get '/test' do	

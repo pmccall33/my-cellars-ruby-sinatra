@@ -10,6 +10,10 @@ class UserAPIController < ApplicationController
 		end
   	end
 
+  	get '/test' do
+  		"You have reached rached a get route in UserAPIController"
+  	end
+
   	post '/test' do
   		"you have reached the test post route here"
   		response = {
@@ -103,8 +107,6 @@ class UserAPIController < ApplicationController
 
 	get '/logout' do
     	
-	    # puts "#{session[:username]} session[:username] here"
-	    # checking for session in postman is giving some issues but it is hitting the route
 	    username = session[:username]
 
 	    session.destroy 

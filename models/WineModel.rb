@@ -1,4 +1,4 @@
 class Wine < ActiveRecord::Base
-	belongs_to :cellar
+	has_many :cellar_wines
 	has_many :cellars, through: :cellar_wines
 end

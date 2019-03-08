@@ -4,15 +4,15 @@ CREATE DATABASE wine_cellar_db;
 \c wine_cellar_db
 
 CREATE TABLE users(
-  id SERIAL PRIMARY KEY,
-  username VARCHAR(32),
-  password_digest VARCHAR(60),
-  is_admin BOOLEAN DEFAULT FALSE 
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(32),
+	password_digest VARCHAR(60),
+	is_admin BOOLEAN DEFAULT FALSE 
 );
 
 CREATE TABLE cellars(
 	id SERIAL PRIMARY KEY,
-	cellar_name VARCHAR(32),
+	cellar_name VARCHAR(63),
 	user_id INTEGER REFERENCES users(id)
 );
 

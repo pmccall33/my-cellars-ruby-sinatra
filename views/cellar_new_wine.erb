@@ -1,6 +1,6 @@
 <h2>Add a wine to the Cellar</h2>
 
-<form action="cellars/wine" method="POST">
+<form action="cellars/<%=@cellar.id%>/wine/new" method="POST">
 	<input type="text" name="wine_name" placeholder="Wine..."><br />
 	<input type="text" name="winemaker" placeholder="Winemaker..."><br />
 	<input type="text" name="wine_region" placeholder="Region..."><br />
