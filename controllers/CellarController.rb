@@ -8,23 +8,6 @@ class CellarController < ApplicationController
 		erb :cellar_new
 	end
 
-	#create new cellar route
-	post '/' do
-		"hit the cellars/new route"
-		user = User.find_by username: session[:username]
-		# puts "#{user} user at cellar POST route"
-
-		cellar = Cellar.new
-
-		cellar.cellar_name = params[:cellar_name]
-		cellar.user_id = user.id
-		cellar.save
-		# puts cellar
-		# puts cellar.user_id
-
-		erb :home
-	end
-
 	# new route
 	get '/:id/wine/new' do
 		@cellar = Cellar.find_by id: params[:id]
@@ -54,12 +37,32 @@ class CellarController < ApplicationController
     	puts "#{wine} created wine is here-----"
 
     	cw = CellarWine.new
-    	cellar_id = cellar.id
-    	wine_id = wine.id
+    	cw.cellar_id = cellar.id
+    	cw.wine_id = wine.id
     	cw.save
     	puts "created cellarwine -------------"
     	puts cw
+    	puts "cw.cellar_id is this thingy here-+_+_+__+_+_+_+_+_+_"
+    	puts cw.cellar_id
 
+    	erb :home
+	end
+
+	#create new cellar route
+	post '/' do
+		"hit the cellars/new route"
+		user = User.find_by username: session[:username]
+		# puts "#{user} user at cellar POST route"
+
+		cellar = Cellar.new
+
+		cellar.cellar_name = params[:cellar_name]
+		cellar.user_id = user.id
+		cellar.save
+		# puts cellar
+		# puts cellar.user_id
+
+		erb :home
 	end
 
 	get '/:id' do
