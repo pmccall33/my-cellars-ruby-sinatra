@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'net/http'
+require 'httparty'
 
 # require controllers
 require './controllers/ApplicationController'

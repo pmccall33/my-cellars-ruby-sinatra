@@ -14,3 +14,4 @@
 	<% if @wine.wine_link and @wine.wine_link.length > 0 %>
 		<a href="<%= @wine.wine_link %>">Link to <%= @wine.wine_name %></a>
 	<% end %>
+	<a href="/wines/<%= @wine.id %>/trends">Get Wine Trend Info</a>

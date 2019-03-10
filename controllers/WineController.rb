@@ -60,6 +60,21 @@ class WineController < ApplicationController
 
 	end
 
+	get '/:id/trends' do
+		puts "POST route at /trends hit!"
+		puts "#{params} params are thus"
+
+		response = HTTParty.get('http://localhost:8080/trends')
+		puts "response.code from localhost:8080 <----======------<<<"
+		pp response.code
+		# get the word the user wants to search for from the params
+    	# give that word to an instance of the Giph class to send a request to the API
+    	#  and get a response
+    	# render the template that will show the user that response
+
+		erb :wine_trends
+	end
+
 	# CREATE TABLE wines(
 	# id SERIAL PRIMARY KEY,
 	# wine_name VARCHAR(63),
@@ -71,7 +86,6 @@ class WineController < ApplicationController
 	# wine_link VARCHAR(255),
 	# wine_notes TEXT
 	# );
-
 
 
 	put '/:id' do
