@@ -1,4 +1,30 @@
 body {
 	background-color: plum;
 	min-width: 360px;
+	margin: 6vh;
+}
+
+nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: right;
+	margin-right: 20px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+img {
+	max-height: 120px;
+	height: 120px;
+	width: 120px;
+}
+
+.logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: left;
 }

@@ -1,12 +1,26 @@
 <h2>Show Cellar Wines Page</h2>
 <h2><%= @cellar.cellar_name %></h2>
 
-<p><%= @cellar.wines %></p>
 <% if @cellar.wines %>
-	<% @cellar.wines.each do |wine| %>
-		<hr>
-		<p>wine: <%= wine.wine_name %> </p>
-	<% end %>
-	<a href="/home">Add a Wine to Your Cellar</a>
+	<li>
+		<% @cellar.wines.each do |wine| %>
+			<% if wine.wine_image_url and wine.wine_image_url.length > 0 %>
+				<img src="<%= wine.wine_image_url %>" alt="Image of <%= wine.wine_name%> wine">
+			<% end %>
+			<h3><%= wine.wine_name %></h3>
+			<a href="/wines/<%= wine.id %>/show"><%= wine.wine_name %></a>
+			<p>Produced by <%= wine.winemaker %> from <%= wine.wine_region %>. A <%= wine.wine_vintage %> vintage. Varietals include <%= wine.wine_varietals%> </p>
+			<a href="<%= wine.wine_link%>">Link to <%= wine.wine_name %> info</a>
+			<form action="/cellars/<%= @cellar.id %>/wine/delete" method="POST">
+		        <input type="hidden" name="wine_id" value="<%= wine.id %>">
+		        <input type="hidden" name="_method" value="DELETE">
+		        <button>Remove Wine from the Cellar</button>
+		    </form>
+			<a href="/wines/<%=wine.id%>/edit">Update Wine Information</a><br />
+			<hr>
+		<% end %>
+	</li>
+
+	<a href="/cellars/<%=@cellar.id%>/wine/new">Add a Wine to Your Cellar</a>
 <% end %>
 

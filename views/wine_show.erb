@@ -1,0 +1,16 @@
+<h2>Wine Information for <%= @wine.wine_name %></h2>
+ 
+
+	<% if @wine.wine_image_url and @wine.wine_image_url.length > 0 %>
+		<img class="wine_show_img" src="<%= @wine.wine_image_url %>" alt="Image of <%= @wine.wine_name%> wine">
+	<% end %>
+	
+	<h2>Wine: <%= @wine.wine_name %></h2>
+	<h3>Winemaker: <%= @wine.winemaker %></h3>
+	<h3>Varietal(s): <%= @wine.wine_varietals %></h3>
+	<h3>Vintage: <%= @wine.wine_vintage %></h3>
+	<h3>Wine Notes: </h3><span><%= @wine.wine_notes %></span><br />
+	<br>
+	<% if @wine.wine_link and @wine.wine_link.length > 0 %>
+		<a href="<%= @wine.wine_link %>">Link to <%= @wine.wine_name %></a>
+	<% end %>

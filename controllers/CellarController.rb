@@ -19,9 +19,9 @@ class CellarController < ApplicationController
 		puts "You have hit the cellars POST route, supersweet"
 		puts "#{params} params from cellars/wine PUST route......"
 		
-		cellar = Cellar.find_by id: params[:id]
-		puts "#{cellar} cellar is here?"
-		puts cellar.id
+		@cellar = Cellar.find_by id: params[:id]
+		puts "#{@cellar} @cellar is here?"
+		puts @cellar.id
 		
 		wine = Wine.new
 		wine.wine_name = params[:wine_name]
@@ -37,7 +37,7 @@ class CellarController < ApplicationController
     	puts "#{wine} created wine is here-----"
 
     	cw = CellarWine.new
-    	cw.cellar_id = cellar.id
+    	cw.cellar_id = @cellar.id
     	cw.wine_id = wine.id
     	cw.save
     	puts "created cellarwine -------------"
@@ -45,7 +45,7 @@ class CellarController < ApplicationController
     	puts "cw.cellar_id is this thingy here-+_+_+__+_+_+_+_+_+_"
     	puts cw.cellar_id
 
-    	erb :home
+    	erb :cellar_show
 	end
 
 	#create new cellar route
@@ -67,12 +67,6 @@ class CellarController < ApplicationController
 
 	get '/:id' do
 		
-		# @cellars = user.cellars
-
-		# user.cellars.each do |c|
-		# 	pp c.id
-		# end
-
 		@cellar = Cellar.find_by id: params[:id]
 		
 		@wines = @cellar.wines
@@ -81,39 +75,31 @@ class CellarController < ApplicationController
 			pp wine.id
 		end
 
-
-		# @cellar_wines = CellarWine.find @cellar.id
-		# puts "@cellar_wines from get cellar /:id route +++++++++++ "
-		# puts @cellar_wines
-
-
 		erb :cellar_show
 	end
+	
+	delete '/:id/wine/delete' do
+		puts "delete wine from cellar route reached"
+		puts "params are right here =+++==+=++"
+		puts params
+		cellar_id = params[:id]
+		wine_id = params[:wine_id]
 
-	# get '/:id/cellars' do
-	# 	puts ":id/cellars GET show route working"
-	# 	puts session[:id]
+		cw = CellarWine.where cellar_id: cellar_id, wine_id: wine_id
+		# binding.pry
 
-	# 	user = User.find_by username: session[:username]
-	# 	puts user.id
-	# 	# cellar = Cellar.find_by user_id: user.id
-	# 	# puts cellar
+		puts "cw ----------"
+		pp "#{cw} cw here <---"
 
-	# 	cellars = Cellar.find_by(user_id: user.id)
-	# 	puts "#{cellars} cellars find_by"
+		# pp cw.cellar_id
+		# pp cw.wine_id
+		cw.destroy
 
-	# 	@user_cellars = []
-	# 	@cellars = Cellar.where(user_id: user.id)
-	# 	puts @cellars
-	# 	puts @cellars.class
-	# 	@user_cellars.push(@cellars)
-	# 	puts @user_cellars
-	# 	puts "#{@user_cellars[2]}  user_cellars[2] herere"
-
-	# 	erb :home
-	# end
+		redirect '/cellars/<%= celar_id %>'
+	end
 
 	delete '/:id' do
+		
 		cellar = Cellar.find params[:id]
 		pp cellar
 
@@ -121,8 +107,9 @@ class CellarController < ApplicationController
 		cellar.destroy
 
 		redirect '/user/cellars'
-
 	end
+
+
 end
 
 

@@ -104,9 +104,9 @@ class UserController < ApplicationController
 		# cellar = Cellar.find_by user_id: user.id
 		# puts cellar
 
-		# user.cellars.each do |c|
-		# 	pp c.id
-		# end
+		user.cellars.each do |c|
+			pp c.id
+		end
 
 		# @cellars = Cellar.where(user_id: user.id)
 		# cellars = Cellar.find_by(user_id: user.id)
@@ -124,7 +124,6 @@ class UserController < ApplicationController
 		# puts "#{@user_cellars[2]}  user_cellars[2] herere"
 
 		erb :home
-
 		
 	end
 end

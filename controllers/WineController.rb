@@ -19,11 +19,23 @@ class WineController < ApplicationController
 		erb :wine_new
 	end
 
+
 	# get wine by :id route
 	get '/:id' do
 		@wine = Wine.find_by id: params[:id]
 		puts @wine
 		puts @wine.winemaker
+
+	end
+
+	# show wine page
+	get '/:id/show' do
+		puts "wines/:id/show route reached"
+		@wine = Wine.find_by id: params[:id]
+		puts @wine
+		puts @wine.winemaker
+
+		erb :wine_show
 	end
 
 	# create/ POST route
