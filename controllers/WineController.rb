@@ -8,7 +8,7 @@ class WineController < ApplicationController
 
 	# index route
 	get '/' do
-
+		"wine index route"
 		@wines = Wine.all.sort
 		erb :wine_index
 	end
@@ -49,7 +49,6 @@ class WineController < ApplicationController
 
     	wine.save
 
-    	puts "#{wine} created wine is here-----"
     	redirect '/wines'
 
 	end
@@ -57,22 +56,37 @@ class WineController < ApplicationController
 	get '/:id/trends' do
 		@wine = Wine.find_by id: params[:id]
 
-		@post_req = HTTParty.post("http://localhost:8080/trends", 
+		post_req = HTTParty.post("http://localhost:8080/trends", 
 			body: { 
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name, 
 				keyword_three: "natural wine" 
 			}
 		)
+		# puts "@wine_trends_data -------======"
+		# puts @wine_trends_data = post_req["default"]["timelineData"][80]["value"]
+		
+		# get the last 8ish years of value Data for the wine		
+		@wine_trends_data = []
+		data_points = (80..((post_req["default"]["timelineData"].length) - 1)).to_a
+		puts data_points.class
 
+		data_points.each do |dp|
+			# puts post_req["default"]["timelineData"][dp]["value"].class
+			@wine_trends_data.push(post_req["default"]["timelineData"][dp]["value"])
+		end
+
+		puts "@wine_trends_data <---=-=-=--=<<"
+		pp @wine_trends_data
 		erb :wine_trends
 	end
 
 
 
 	put '/:id' do
+		puts "put /:id route reached....."
 		wine = Wine.find params[:id]
-
+		puts wine
 
 		wine.wine_name = params[:wine_name]
 		wine.winemaker = params[:winemaker]
@@ -92,6 +106,7 @@ class WineController < ApplicationController
 	get '/:id/edit' do
 		@wine = Wine.find_by id: params[:id]
 
+		# puts @wine
 		erb :wine_edit
 	end
 
