@@ -6,7 +6,7 @@
 <% if @cellars and @cellars.length > 0 %>
 	<% @cellars.each do |cellar| %>
 		<hr>
-		<p>cellar: <%= cellar.cellar_name %> </p>
+		<!-- <p>cellar: <%= cellar.cellar_name %> </p> -->
 		<a href="/cellars/<%= cellar.id %>"><%= cellar.cellar_name %></a>
 		<form action="/cellars/<%=cellar.id%>" method="POST">
 			<input hidden name="_method" value="DELETE">

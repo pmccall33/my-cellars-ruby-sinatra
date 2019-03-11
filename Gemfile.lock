@@ -31,6 +31,7 @@ GEM
     multi_xml (0.6.0)
     mustermann (1.0.3)
     pg (1.1.4)
+    pi_charts (1.0.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -60,6 +61,7 @@ DEPENDENCIES
   httparty
   json
   pg
+  pi_charts
   pry
   sinatra
   sinatra-activerecord

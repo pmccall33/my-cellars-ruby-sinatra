@@ -95,7 +95,7 @@ class CellarController < ApplicationController
 		# pp cw.wine_id
 		cw.destroy
 
-		redirect '/cellars/<%= celar_id %>'
+		redirect '/cellars/<%= cellar_id %>'
 	end
 
 	delete '/:id' do

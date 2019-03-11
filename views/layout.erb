@@ -3,32 +3,35 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	
 </head>
 <body>
-	<header>
-		<nav class="logo">
-			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdOksE5o9qQVEUp3tOhvCSG4CIVnXCQ5KTTYevnX1MbBum7pJfQ" alt="wine cellar site logo">
-		</nav>
-		<nav>
-			<a href="/">Home</a> |
-			<% if session[:logged_in] %>
-			Howdy, <%= session[:username] %>.
-			<a href="/user/logout">Log out</a>
-			<a href="/user/cellars">My cellars</a>
-			<% else %>
-			<a href="/user/login">Log in</a> | 
-			<a href="/user/register">Register</a>
-			<% end %>
-			<a href="/wines/new">Add a wine to the Master Cellar</a>
-	    </nav>
-	</header> 
+	<main>
+		<header>
+			<nav class="logo">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdOksE5o9qQVEUp3tOhvCSG4CIVnXCQ5KTTYevnX1MbBum7pJfQ" alt="wine cellar site logo">
+			</nav>
+			<nav>
+				<a href="/">Home</a> |
+				<% if session[:logged_in] %>
+				Howdy, <%= session[:username] %>.
+				<a href="/user/logout">Log out</a>
+				<a href="/user/cellars">My cellars</a>
+				<% else %>
+				<a href="/user/login">Log in</a> | 
+				<a href="/user/register">Register</a>
+				<% end %>
+				<a href="/wines/new">Add a wine to the Master Cellar</a>
+		    </nav>
+		</header> 
 
-	<% if session[:message] %>
-		<h3><%= session[:message][:message] %></h3>
-	<% end %>
-	<% session[:message] = nil %>
+		<% if session[:message] %>
+			<h3><%= session[:message][:message] %></h3>
+		<% end %>
+		<% session[:message] = nil %>
 
-	<%= yield %>
+		<%= yield %>
 
+	</main>
 </body>
 </html>

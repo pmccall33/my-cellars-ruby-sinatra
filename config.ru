@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'net/http'
 require 'httparty'
+require 'pi_charts'
 
 # require controllers
 require './controllers/ApplicationController'

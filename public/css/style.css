@@ -3,13 +3,20 @@ body {
 	min-width: 360px;
 	margin: 6vh;
 }
+main {
+	/*background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/020c2828-2-orig-orig_orig.jpg");*/
+	background-repeat: no-repeat;
+	opacity: 0.79;
+	margin: 2vh;
+	padding: 4vh;
+
+}
 
 nav {
-	display: flex;
-	justify-content: flex-end;
-	align-items: right;
+	display: inline-block;
 	margin-right: 20px;
 }
+
 
 header {
 	display: flex;
@@ -21,10 +28,4 @@ img {
 	max-height: 120px;
 	height: 120px;
 	width: 120px;
-}
-
-.logo {
-	display: flex;
-	justify-content: flex-start;
-	align-items: left;
 }

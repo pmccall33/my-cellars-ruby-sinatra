@@ -31,6 +31,8 @@ CREATE TABLE wines(
 CREATE TABLE cellar_wines(
 	id SERIAL PRIMARY KEY,
 	cellar_id INTEGER REFERENCES cellars(id),
-	wine_id INTEGER REFERENCES wines(id)
+	wine_id INTEGER REFERENCES wines(id),
+	wine_amount SMALLINT,
+	wine_source VARCHAR(63)
 );
 
