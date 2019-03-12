@@ -59,6 +59,7 @@ DEPENDENCIES
   bcrypt
   dotenv
   httparty
+  i18n
   json
   pg
   pi_charts

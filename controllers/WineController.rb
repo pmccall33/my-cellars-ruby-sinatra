@@ -56,50 +56,62 @@ class WineController < ApplicationController
 	get '/:id/trends' do
 		@wine = Wine.find_by id: params[:id]
 
-		post_req = HTTParty.post("http://localhost:8080/trends", 
+		post_req_one = HTTParty.post("http://localhost:8080/trends", 
 			body: { 
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name, 
 				keyword_three: "natural wine" 
 			}
 		)
-		# puts "@wine_trends_data -------======"
-		# puts @wine_trends_data = post_req["default"]["timelineData"][80]["value"]
-		
-		# get the last 8ish years of value Data for the wine		
-		@wine_trends_data = []
-		data_points = (80..((post_req["default"]["timelineData"].length) - 1)).to_a
-		puts data_points.class
 
-		data_points.each do |dp|
-			# puts post_req["default"]["timelineData"][dp]["value"].class
-			@wine_trends_data.push(post_req["default"]["timelineData"][dp]["value"])
+		post_req_two = HTTParty.post("http://localhost:8080/trends/winemaker",
+			body: {
+				keyword_one: @wine.winemaker, 
+				keyword_two: @wine.wine_name
+			}
+		)
+
+		# get 4 ish years of trending data 'natural wine'	
+		@wine_trends_data_one = []
+		data_points_one = (120..((post_req_one["default"]["timelineData"].length) - 1)).to_a
+
+		data_points_one.each do |dp|
+			@wine_trends_data_one.push(post_req_one["default"]["timelineData"][dp]["value"][0])
+		end
+
+		# get 4 ish years of trending data for winemaker
+		@wine_trends_data_two = []
+		data_points_two = (120..((post_req_two["default"]["timelineData"].length) - 1)).to_a
+
+		data_points_two.each do |dp|
+			@wine_trends_data_two.push(post_req_two["default"]["timelineData"][dp]["value"][0])
 		end
 
 		puts "@wine_trends_data <---=-=-=--=<<"
-		pp @wine_trends_data
+		pp @wine_trends_data_one
+		pp @wine_trends_data_two
 		erb :wine_trends
 	end
 
 
 
 	put '/:id' do
-		puts "put /:id route reached....."
-		wine = Wine.find params[:id]
-		puts wine
+		@wine = Wine.find params[:id]
+		puts @wine
 
-		wine.wine_name = params[:wine_name]
-		wine.winemaker = params[:winemaker]
-		wine.wine_region = params[:wine_region]
-		wine.wine_varietals  = params[:wine_varietals]
-		wine.wine_vintage = params[:wine_vintage]
-		wine.wine_image_url = params[:wine_image_url]
-		wine.wine_link = params[:wine_link]
-		wine.wine_notes = params[:wine_notes]
+		@wine.wine_name = params[:wine_name]
+		@wine.winemaker = params[:winemaker]
+		@wine.wine_region = params[:wine_region]
+		@wine.wine_varietals  = params[:wine_varietals]
+		@wine.wine_vintage = params[:wine_vintage]
+		@wine.wine_image_url = params[:wine_image_url]
+		@wine.wine_link = params[:wine_link]
+		@wine.wine_notes = params[:wine_notes]
 		
-		wine.save
+		@wine.save
 
-		redirect '/wines'
+		erb :wine_show
+		# redirect '/wines'
 	end
 
 

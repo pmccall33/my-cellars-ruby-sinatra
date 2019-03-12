@@ -79,23 +79,16 @@ class CellarController < ApplicationController
 	end
 	
 	delete '/:id/wine/delete' do
-		puts "delete wine from cellar route reached"
-		puts "params are right here =+++==+=++"
-		puts params
 		cellar_id = params[:id]
 		wine_id = params[:wine_id]
 
 		cw = CellarWine.where cellar_id: cellar_id, wine_id: wine_id
 		# binding.pry
 
-		puts "cw ----------"
-		pp "#{cw} cw here <---"
+		# pp cw.class
+		cw[0].destroy
 
-		# pp cw.cellar_id
-		# pp cw.wine_id
-		cw.destroy
-
-		redirect '/cellars/<%= cellar_id %>'
+		redirect "/cellars/#{cellar_id}"
 	end
 
 	delete '/:id' do
