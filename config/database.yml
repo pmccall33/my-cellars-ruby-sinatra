@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: super_rad_app_db
+  database: wine_cellar_db
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
   host: localhost
