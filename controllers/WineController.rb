@@ -56,7 +56,7 @@ class WineController < ApplicationController
 	get '/:id/trends' do
 		@wine = Wine.find_by id: params[:id]
 
-		post_req_one = HTTParty.post("http://localhost:8080/trends", 
+		post_req_one = HTTParty.post("http://wine-express-api.herokuapp.com/trends", 
 			body: { 
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name, 
@@ -64,7 +64,7 @@ class WineController < ApplicationController
 			}
 		)
 
-		post_req_two = HTTParty.post("http://localhost:8080/trends/winemaker",
+		post_req_two = HTTParty.post("http://wine-express-api.herokuapp.com/trends/winemaker",
 			body: {
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name
