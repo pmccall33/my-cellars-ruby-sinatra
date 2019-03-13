@@ -56,21 +56,26 @@ class WineController < ApplicationController
 	get '/:id/trends' do
 		@wine = Wine.find_by id: params[:id]
 
+		post_req_one = HTTParty.post(ENV['SERVER_URL'] + "/trends",
 		# post_req_one = HTTParty.post("http://localhost:8080/trends",
-		post_req_one = HTTParty.post("https://wine-express-api.herokuapp.com/trends",  
+		# post_req_one = HTTParty.post("https://wine-express-api.herokuapp.com/trends",  
 			body: { 
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name, 
 				keyword_three: "natural wine" 
-			}
+			}.to_json,
+			headers: { 'Content-Type' => 'application/json' }
 		)
-
-		post_req_two = HTTParty.post("https://wine-express-api.herokuapp.com/trends/winemaker",
+		
+		post_req_two = HTTParty.post(ENV['SERVER_URL'] + "/trends/winemaker",
 		# post_req_two = HTTParty.post("http://localhost:8080/trends/winemaker",
+		# post_req_two = HTTParty.post("https://wine-express-api.herokuapp.com/trends/winemaker",
 			body: {
 				keyword_one: @wine.winemaker, 
 				keyword_two: @wine.wine_name
-			}
+			}.to_json,
+			headers: { 'Content-Type' => 'application/json' }
+
 		)
 
 		# get 4 ish years of trending data 'natural wine'	
