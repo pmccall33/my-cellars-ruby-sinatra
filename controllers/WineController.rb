@@ -80,7 +80,7 @@ class WineController < ApplicationController
 
 		# get 4 ish years of trending data 'natural wine'	
 		@wine_trends_data_one = []
-		data_points_one = (12..((post_req_one["default"]["timelineData"].length) - 1)).to_a
+		data_points_one = (120..((post_req_one["default"]["timelineData"].length) - 1)).to_a
 
 		data_points_one.each do |dp|
 			@wine_trends_data_one.push(post_req_one["default"]["timelineData"][dp]["value"][0])
