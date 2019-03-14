@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>My Cellars</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-	
 </head>
 <body>
-	<main>
 		<header>
+			<h2>My Cellars</h2>
 			<nav class="logo">
 				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdOksE5o9qQVEUp3tOhvCSG4CIVnXCQ5KTTYevnX1MbBum7pJfQ" alt="wine cellar site logo">
 			</nav>
@@ -25,6 +24,7 @@
 				<a href="/wines/new">Add a wine to the Master Cellar</a>
 		    </nav>
 		</header> 
+	<main>
 
 		<% if session[:message] %>
 			<h3><%= session[:message][:message] %></h3>
@@ -35,7 +35,7 @@
 
 	</main>
 	<footer>
-		<p>Im a footer!</p>
+		<p>by pmccallmurray</p>
 	</footer>
 	
 

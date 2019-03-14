@@ -1,51 +1,50 @@
 <h2>Wine Trending Info Page for <%= @wine.winemaker %></h2>
+	<div class="graph-trends">
+		<canvas id="trendsLineChart" height="400" width="400"></canvas>
+			<script>
+				const ctx = document.getElementById("trendsLineChart");
+				console.log(ctx);
 
-<!-- <p><%= @wine_trends_data_one %></p>
-<p><%= @wine_trends_data_two %></p>
- -->
-	<canvas id="trendsLineChart" height="400" width="400"></canvas>
-		<script>
-			const ctx = document.getElementById("trendsLineChart");
-			console.log(ctx);
-
-			let trendsLineChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: ["Natural Wine"],
-					datasets: [{
-							label: 'Google Trending Value for Natural Wine',
-							data: <%= @wine_trends_data_one %>,
-							backgroundcolor: 'white',
-							bordercolor: 'white',
-							borderWidth: '2'
-						}, 
-						{
-							label: '<%= @wine.winemaker %> Trending Data',
-							data: <%= @wine_trends_data_two %>,
-							backgroundcolor: 'lightblue',
-							bordercolor: 'blue',
-							borderWidth: '2'			
-						}]
-				},
-				options: {
-			        display: true,
-			        text: 'Natural Wine Search Trends',
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero:true
-			                }
-			            }],
-				        xAxes: [{
-			                type: 'category',
-			                labels: ['9/15','','','','','','','', '', '', '', '', '9/16','','','','','','','', '', '', '', '', '9/17','','','','','','','', '', '', '', '', '9/18','','','','','','','', '', '', '', '', '9/19','','','','','','','', '', '', '', '9/20', '', '', 'now'],
-			            }]
-			        }
-			    }
-			});
-	</script>
-	<a href="/wines/<%= @wine.id %>/show">Back to the Wine</a>
-
+				let trendsLineChart = new Chart(ctx, {
+					type: 'line',
+					data: {
+						labels: ["Natural Wine"],
+						datasets: [{
+								label: 'Google Trending Value for Natural Wine',
+								data: <%= @wine_trends_data_one %>,
+								backgroundColor: 'rgba(240, 128, 128, 0.3)',
+								borderColor: 'salmon',
+								borderWidth: '2',
+								color: 'red'
+							}, 
+							{
+								label: '<%= @wine.winemaker %> Trending Data',
+								data: <%= @wine_trends_data_two %>,
+								backgroundColor: 'rgba(95, 158, 160, 0.4)',
+								borderColor: 'cadetblue',
+								borderWidth: '2',
+								color: 'blue'			
+							}]
+					},
+					options: {
+				        display: true,
+				        text: 'Natural Wine Search Trends',
+				        scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero:true
+				                }
+				            }],
+					        xAxes: [{
+				                type: 'category',
+				                labels: ['9/15','','','','','','','', '', '', '', '', '9/16','','','','','','','', '', '', '', '', '9/17','','','','','','','', '', '', '', '', '9/18','','','','','','','', '', '', '', '', '9/19','','','','','','','', '', '', '', '9/20', '', '', 'now'],
+				            }]
+				        }
+				    }
+				});
+		</script>
+		<a href="/wines/<%= @wine.id %>/show">Back to the Wine</a>
+	</div>
 
 
 

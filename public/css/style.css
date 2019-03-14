@@ -1,14 +1,17 @@
 body {
-	background-color: plum;
+	background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/020c2828-2-orig-orig_orig.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: cadetblue;
+	opacity: 0.84;
 	min-width: 360px;
 	margin: 6vh;
 }
 main {
-	/*background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/020c2828-2-orig-orig_orig.jpg");*/
-	background-repeat: no-repeat;
-	opacity: 0.79;
+	background-color: plum;	
 	margin: 2vh;
 	padding: 4vh;
+	border-radius: 12px;
 
 }
 
@@ -24,14 +27,25 @@ header {
 	align-items: center;
 }
 
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: purple;
+	margin-bottom: 20px;
+}
+
 img {
-	max-height: 120px;
-	height: 120px;
-	width: 120px;
+	max-height: 140px;
 }
 
 .graph-trends {
-	background-color: cadetblue;
+	background-color: lightgrey;
+	opacity: 0.99;
+	border-radius: 10px;
+	margin: 4vh;
+	padding: 2vh;
+	max-height: 60%;
 }
 
 

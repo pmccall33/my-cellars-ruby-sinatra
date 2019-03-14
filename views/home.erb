@@ -1,7 +1,4 @@
-<h2>Wine Cellar App</h2>
-
-<img src="http://www.agricolaocchipinti.it/en/img/vini-agricola-occhipinti.jpg" alt="wine bottle">
-	
+<h2>My Cellars</h2>
 
 <% if @cellars and @cellars.length > 0 %>
 	<% @cellars.each do |cellar| %>
@@ -13,18 +10,6 @@
 			<button>Empty the Cellar!</button>
 		</form>
 		<a href="/cellars/<%= cellar.id %>/wine/new">Add A Wine to the Cellar</a>
-			<!-- <form action="/cellars/<%=cellar.id%>/wine/new" method="POST">
-				<input type="text" name="wine_name" placeholder="Wine..."><br />
-				<input type="text" name="winemaker" placeholder="Winemaker..."><br />
-				<input type="text" name="wine_region" placeholder="Region..."><br />
-				<input type="text" name="wine_varietals" placeholder="Varietals..."><br />
-				<input type="text" name="wine_vintage" placeholder="Vintage..."><br />
-				<input type="text" name="wine_image_url" placeholder="Image URL..."><br />
-				<input type="text" name="wine_link" placeholder="Link to Wine Info..."><br />
-				<input type="text" name="wine_notes" placeholder="Notes on the wine..."><br />
-
-				<button>Add your Wine to the Cellar</button>
-			</form> -->
 		
 		<hr>
 		<br />

@@ -97,31 +97,12 @@ class UserController < ApplicationController
 		puts session[:id]
 
 		user = User.find_by username: session[:username]
-		# puts user.id
 
 		@cellars = user.cellars
-
-		# cellar = Cellar.find_by user_id: user.id
-		# puts cellar
 
 		user.cellars.each do |c|
 			pp c.id
 		end
-
-		# @cellars = Cellar.where(user_id: user.id)
-		# cellars = Cellar.find_by(user_id: user.id)
-		# puts "#{cellars} cellars find_by"
-		# puts "\nhere come the cellars"
-		# for c in @cellars do
-		# 	pp c.cellar_name
-		# end
-
-		# @user_cellars = []
-		# puts @cellars
-		# puts @cellars.class
-		# @user_cellars.push(@cellars)
-		# puts @user_cellars
-		# puts "#{@user_cellars[2]}  user_cellars[2] herere"
 
 		erb :home
 		
