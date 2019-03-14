@@ -7,21 +7,21 @@
 </head>
 <body>
 		<header>
-			<h2>My Cellars</h2>
+			<h1 class="title">My Cellars</h1>
 			<nav class="logo">
 				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdOksE5o9qQVEUp3tOhvCSG4CIVnXCQ5KTTYevnX1MbBum7pJfQ" alt="wine cellar site logo">
 			</nav>
 			<nav>
 				<a href="/">Home</a> |
 				<% if session[:logged_in] %>
-				Howdy, <%= session[:username] %>.
-				<a href="/user/logout">Log out</a>
-				<a href="/user/cellars">My cellars</a>
+				Howdy, <%= session[:username] %> |
+				<a href="/user/logout">Log out</a> |
+				<a href="/user/cellars">My cellars</a> |
 				<% else %>
 				<a href="/user/login">Log in</a> | 
 				<a href="/user/register">Register</a>
 				<% end %>
-				<a href="/wines/new">Add a wine to the Master Cellar</a>
+				<!-- <a href="/wines/new">Add a wine to the Master Cellar</a> -->
 		    </nav>
 		</header> 
 	<main>

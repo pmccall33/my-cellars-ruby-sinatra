@@ -16,8 +16,6 @@ class CellarController < ApplicationController
 
 
 	post '/:id/wine/new' do
-		puts "You have hit the cellars POST route, supersweet"
-		puts "#{params} params from cellars/wine PUST route......"
 		
 		@cellar = Cellar.find_by id: params[:id]
 		puts "#{@cellar} @cellar is here?"
@@ -34,16 +32,11 @@ class CellarController < ApplicationController
 		wine.wine_notes = params[:wine_notes]
 
     	wine.save
-    	puts "#{wine} created wine is here-----"
 
     	cw = CellarWine.new
     	cw.cellar_id = @cellar.id
     	cw.wine_id = wine.id
     	cw.save
-    	puts "created cellarwine -------------"
-    	puts cw
-    	puts "cw.cellar_id is this thingy here-+_+_+__+_+_+_+_+_+_"
-    	puts cw.cellar_id
 
     	erb :cellar_show
 	end
@@ -52,15 +45,12 @@ class CellarController < ApplicationController
 	post '/' do
 		"hit the cellars/new route"
 		user = User.find_by username: session[:username]
-		# puts "#{user} user at cellar POST route"
 
 		cellar = Cellar.new
 
 		cellar.cellar_name = params[:cellar_name]
 		cellar.user_id = user.id
 		cellar.save
-		# puts cellar
-		# puts cellar.user_id
 
 		erb :home
 	end
@@ -83,9 +73,7 @@ class CellarController < ApplicationController
 		wine_id = params[:wine_id]
 
 		cw = CellarWine.where cellar_id: cellar_id, wine_id: wine_id
-		# binding.pry
-
-		# pp cw.class
+		
 		cw[0].destroy
 
 		redirect "/cellars/#{cellar_id}"
@@ -104,10 +92,3 @@ class CellarController < ApplicationController
 
 
 end
-
-
-# CREATE TABLE cellars(
-# 	id SERIAL PRIMARY KEY,
-# 	cellar_name VARCHAR(32),
-# 	user_id INTEGER REFERENCES users(id)
-# );

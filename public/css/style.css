@@ -1,9 +1,11 @@
 body {
-	background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/020c2828-2-orig-orig_orig.jpg");
+/*	background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/020c2828-2-orig-orig_orig.jpg");*/
+	background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/published/020c1296.jpg");
+	/*background: url("https://www.selectionmassale.com/uploads/4/1/4/8/41480149/published/jerome_1.jpg");*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: cadetblue;
-	opacity: 0.84;
+	opacity: 0.87;
 	min-width: 360px;
 	margin: 6vh;
 }
@@ -25,6 +27,10 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.title {
+	margin: 4vh;
 }
 
 footer {
