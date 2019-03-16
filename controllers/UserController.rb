@@ -76,7 +76,7 @@ class UserController < ApplicationController
 				status: "bad",
 				message: "Shucks, username or password incorrect."
 			}
-			redirect 'user/login'
+			erb :home
 		end
 	end
 
