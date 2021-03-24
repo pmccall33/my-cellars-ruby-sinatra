@@ -9,8 +9,9 @@ body {
 	min-width: 360px;
 	margin: 6vh;
 }
+
 main {
-	background-color: plum;	
+	background-color: plum;
 	margin: 2vh;
 	padding: 4vh;
 	border-radius: 12px;
@@ -27,10 +28,16 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: rgba(189,189,189,.9);
 }
 
 .title {
 	margin: 4vh;
+	color: plum;
+}
+
+.subtitle {
+	color: plum;
 }
 
 footer {
