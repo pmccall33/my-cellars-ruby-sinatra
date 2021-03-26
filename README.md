@@ -3,9 +3,9 @@
 #### A mangement app for a wine cellar/portfolio for personal or business including trending data on your collection. (Upcoming: sophisticated derivitive-based market correlation tracking for your wines against the broader trend market).
 
 #### Images
-![Main Wine Cellars App Page](./public/assets/appDemoCellarView.png){height="200" width="300"}
+<img src="./public/assets/appDemoCellarView.png" alt="my cellars demo image" width="500"/>
+<img src="./public/assets/appDemoTrendData.png" alt="my cellars trend data demo image" width="500"/>
 
-![Main Wine Cellars App Page](./public/assets/appDemoTrendData.png){height="200" width="300"}
 
 
 #### A User Story
